@@ -365,15 +365,92 @@ function comparer4(a, b) {
 
 //Положительное число в "return" - переставляет элементы местами, отрицательное оставляет на прежнем порядке.
 
-let numbers2 = [134, 223, 456, 222, 9, 3, 567, 223, 701, 6, 8];
-numbers2.sort(comparer);
-console.log(numbers2); //[3, 6, 8, 9, 134, 222, 223, 223, 456, 567, 701]
-numbers2.sort(comparer3);
-console.log(numbers2); //[3, 6, 8, 9, 134, 222, 223, 223, 456, 567, 701]
-numbers2.sort(comparer4);
-console.log(numbers2); //[701, 567, 456, 223, 223, 222, 134, 9, 8, 6, 3]
+// let numbers2 = [134, 223, 456, 222, 9, 3, 567, 223, 701, 6, 8];
+// numbers2.sort(comparer);
+// console.log(numbers2); //[3, 6, 8, 9, 134, 222, 223, 223, 456, 567, 701]
+// numbers2.sort(comparer3);
+// console.log(numbers2); //[3, 6, 8, 9, 134, 222, 223, 223, 456, 567, 701]
+// numbers2.sort(comparer4);
+// console.log(numbers2); //[701, 567, 456, 223, 223, 222, 134, 9, 8, 6, 3]
 
-number2.sort(function (a, b) {
-  alert(a + "<>" + b);
-  return a - b;
+// number2.sort(function (a, b) {
+//   alert(a + "<>" + b);
+//   return a - b;
+// });
+
+const arr_1 =[
+  {product: 'Кубик Рубика', price:20},
+  {product: 'Шкаф', price:110},
+  {product: 'Стол', price:80},
+]
+  
+function sumProduct (arr) {
+ let res= arr.reduce(function(accum, elem){
+    return accum + elem.price
+  },0)
+ console.log(res)
+ return res;
+}
+
+console.log(sumProduct(arr_1))
+
+function comparer5(a, b) {
+  return b - a;
+}
+
+let price = arr_1.map(function(elem, arr){
+  return elem.price
 });
+console.log(price);
+
+let maxPrice = Math.max(...price);
+console.log(maxPrice);//110
+
+
+const obj = {
+  name: 'Tanya',
+  age: 35,
+  dog:'Lacky',
+  foo(){
+    console.log(1)
+  }
+
+}
+
+const arrA = [ 'book', 'car', 777, { car: 'BMW'}]
+
+arr.tempkey = 'temp'
+
+for (let el in obj){
+  console.log (obj[el]);
+}
+
+
+
+console.log(Object. keys(obj))//['name', 'age', 'dog'] массив ключей
+console.log(Object. values(obj))//['Tanya', 35, 'Lacky'] массив значений
+console.log(Object. entries(obj))// массив массивов[[], [key, value], []]
+
+
+
+//Деструктуризация
+
+const colorArr = ['black', 'red']
+
+let value1 = colorArr[0]
+let value2 = colorArr[1]
+
+// let [valueD1, valueD2]=['black', 'red']
+let [valueD1, valueD2]=colorArr
+
+console.log(valueD1,valueD2);//black red
+
+
+const carsList = ['audi', 'shkoda', 'bmw']
+
+let myCar = carsList[0]
+let sisterCar = carsList[1]
+let brotherCar = carsList[2]
+
+let [myCarD1, sisterCarD2, brotherCarD3] = ['audi', 'shkoda', 'bmw']
+console.log(myCarD1, sisterCarD2, brotherCarD3)
