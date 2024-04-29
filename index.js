@@ -296,3 +296,84 @@ let newUsers = users.filter((item) => {
   return item.name.includes("p");
 });
 console.log(newUsers);
+//******************************************************** */
+// _______________Метод Sort()______________________________
+
+let exemple = [1000, 1, 100, 1000000, -1];
+console.log(exemple);
+
+for (let j = 0; j < exemple.length; j++) {
+  for (let i = 0; i < exemple.length - 1; i++) {
+    if (exemple[i] > exemple[i + 1]) {
+      let first = exemple[i];
+      exemple[i] = exemple[i + 1];
+      exemple[i + 1] = first;
+    }
+  }
+}
+console.log(exemple); //[-1, 1, 100, 1000, 1000000]
+
+for (let j = 0; j < exemple.length; j++) {
+  for (let i = 0; i < exemple.length - 1; i++) {
+    if (exemple[i] < exemple[i + 1]) {
+      let first = exemple[i];
+      exemple[i] = exemple[i + 1];
+      exemple[i + 1] = first;
+    }
+  }
+}
+console.log(exemple); // [1000000, 1000, 100, 1, -1]
+// __________________________________________________
+// по умолчанию метод sort элементы массива сравнивает, как строки. Sort сортирует исходный массив, не создает новый!!!
+/* Мы можем изменять принцип сравнения элементов, для этого надо написать функцию callback, где прописываем условия по каким будет происходить сравнение пары элементов нашего массива. Ключевым является то число, которое будет возвращать (return) наша функция: положительное - элементы массива меняются местами, отрицательное или ноль - элементы остаются на своих местах.
+
+function comparer (a,b){
+    return a-b
+}
+Далее нашу функцию сравнения передаем параметром в метод sort():
+array.sort(comparer)/
+Метод sort() сортирует массив на месте и возвращает также отсортированный массив.*/
+
+let number = [1, 4, 2, 9, 3, 5, 7, 6, 8];
+number.sort();
+console.log(number); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+let number2 = [134, 456, 222, 9, 3, 567, 701, 6, 8];
+number.sort();
+console.log(number2); //[134, 456, 222, 9, 3, 567, 701, 6, 8]
+let numbers = [134, 456, 222, 9, 3, 567, 223, 701, 6, 8];
+
+numbers.sort(comparer);
+console.log(numbers); //[3, 6, 8, 9, 134, 222, 223, 456, 567, 701]
+
+numbers.sort(comparer2);
+console.log(numbers); // [701, 567, 456, 223, 222, 134, 9, 8, 6, 3]
+
+function comparer(a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;
+}
+function comparer2(a, b) {
+  if (a > b) return -10000;
+  if (a < b) return 1;
+}
+function comparer3(a, b) {
+  return a - b;
+}
+function comparer4(a, b) {
+  return b - a;
+}
+
+//Положительное число в "return" - переставляет элементы местами, отрицательное оставляет на прежнем порядке.
+
+let numbers2 = [134, 223, 456, 222, 9, 3, 567, 223, 701, 6, 8];
+numbers2.sort(comparer);
+console.log(numbers2); //[3, 6, 8, 9, 134, 222, 223, 223, 456, 567, 701]
+numbers2.sort(comparer3);
+console.log(numbers2); //[3, 6, 8, 9, 134, 222, 223, 223, 456, 567, 701]
+numbers2.sort(comparer4);
+console.log(numbers2); //[701, 567, 456, 223, 223, 222, 134, 9, 8, 6, 3]
+
+number2.sort(function (a, b) {
+  alert(a + "<>" + b);
+  return a - b;
+});
