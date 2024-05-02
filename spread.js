@@ -1,4 +1,4 @@
-//Spread и Rest
+//Оператор расширения (Spread) и  остаточные операторы (Rest)
 
 const citiesRussia = ["Москва", "Санкт-Петербург", "Казань", "Новосибирск"];
 
@@ -131,3 +131,110 @@ function logPerson({ name: firstName = "111", age }) {
 }
 
 logPerson(person_); //Max 20
+//**************************************************************************************************************************/
+const func = (...rest) => {
+  let sum = rest.reduce((ac, item) => {
+    return ac + item;
+  }, 0);
+  return sum;
+};
+
+console.log(func(1, 2, 3, 4, 5)); // 15
+// _____________________________________________
+const func2 = (a, b, ...rest) => {
+  //остаточный оператор всегда записывается в конце
+  let sum = rest.reduce((ac, item) => {
+    return ac + item;
+  }, 0);
+  return sum;
+};
+
+console.log(func2(1, 2, 3, 4, 5)); // 12
+//___________________________________________
+// function func3() {
+//   //   console.log(arguments);
+//   arguments.forEach((item, index) => {
+//     console.log(item);
+//   });
+// }
+
+// func3(1, 2, 3, 4, 5); //spread.js:156 Uncaught TypeError: arguments.forEach is not a function
+// __________________________________________________
+const arg = [1, 2, 3, 4, 5];
+const arg2 = [6, 7, 8];
+const func4 = (...rest) => {
+  let sum = rest.reduce((ac, item) => {
+    return ac + item;
+  }, 0);
+  return sum;
+};
+
+console.log(func4(...arg, ...arg2)); //36- оператор расширения Spread
+console.log(Math.max(...arg)); //5
+
+//*********************************************************************************************************************** */
+//         Деструктуризация массивов и объектов
+
+const arrB = ["Vitaly", "Pavel"];
+
+// const nameOne = arrB[0];
+// const nameTwo = arrB[1];
+
+// console.log(nameOne, nameTwo); //Vitaly Pavel
+
+const [nameO, nameT, name3] = arrB;
+// const [nameO, nameT, name3] = new Set(arrB); //Vitaly Pavel undefined
+
+console.log(nameO, nameT, name3); //Vitaly Pavel undefined
+// _________________________________________________________
+
+// const user = {
+//   name: "Vitaliy",
+//   age: 30,
+// };
+
+// const newArray = Object.entries(user).map((item) => {
+//   return ["key-prefix-" + item[0], "value-prefix-" + item[1]];
+// });
+// console.log(Object.entries(user));
+// console.log(newArray); //(2) [Array(2), Array(2)]
+
+// const newObj = Object.fromEntries(newArray);
+// console.log(newObj); //{key-prefix-name: 'value-prefix-Vitaliy', key-prefix-age: 'value-prefix-30'}
+
+const arrC = ["Vitaly", "Pavel", "Kolya", "Olya", "Petya"];
+const [name_1, name_2 = "Kolya", ...otherNames] = arrC;
+console.log(name_1, name_2); //Vitaly Pavel
+console.log(otherNames); //(3) ['Kolya', 'Olya', 'Petya']
+console.log(otherNames[0]); //(3) Kolya
+
+const user = {
+  name: "Vitaliy",
+  age: 30,
+  isMarried: true,
+  country: "Russia",
+  street: {
+    name: "Molodegnaya",
+  },
+};
+const {
+  name: nameU,
+  age: ageU = 25,
+  street: { name: streetName },
+} = user;
+console.log(nameU, ageU); //Vitaliy 25
+// console.log(otherValues); //{isMarried: true, country: 'Russia'}
+console.log(streetName); //Molodegnaya
+
+const anyFunc = ({ name, age = 30, isMarried, country }) => {
+  //деструктуризация
+  console.log(name, age, isMarried, country);
+};
+
+const params = {
+  name: "Tanya",
+  age: 30,
+  isMarried: true,
+  country: "Russia",
+};
+anyFunc(params); //Tanya 30 true Russia

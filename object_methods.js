@@ -238,12 +238,14 @@ console.log(newArray6); //[1, 2, 3, 4]
 console.log(newArray6 === originalArray6); //false
 
 // 7 способ____
+// const originalArray7 = [1, 2, 3, 4];
+// let newArray7 = originalArray7.map(function (elem) {
+//   return elem;
+// });
 const originalArray7 = [1, 2, 3, 4];
-let newArray7 = originalArray7.map(function (elem) {
-  return elem;
-});
+let newArray7 = originalArray7.map((elem) => elem);
 
-console.log(newArray7);
+console.log(newArray7); //[1, 2, 3, 4]
 console.log(newArray7 === originalArray7); //false
 
 //Глубокое копирование
