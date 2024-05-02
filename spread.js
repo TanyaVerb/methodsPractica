@@ -238,3 +238,75 @@ const params = {
   country: "Russia",
 };
 anyFunc(params); //Tanya 30 true Russia
+// __________________________________________________________
+
+let arrayT = [1,2,3,4,5];
+
+let arrNew = Array.from(arrayT)
+console.log(arrNew)
+
+//2)
+
+let arrNew2 = arrayT.slice();
+console.log(arrNew2)
+
+let arrNew3 = arrayT.concat();
+console.log(arrNew3)
+console.log(arrNew3===arrayT)
+
+let arrNew4 = arrayT.filter((item)=> item);
+console.log(arrNew4)
+
+let arrNew5 = [...arrayT];
+console.log(arrNew5)
+
+// let arrNew6 = arrayT
+// console.log(arrNew6)//не копия
+
+// for (let i= 0; i< arrayT.length; i++){
+// r
+// }
+//*********************************************************************** */
+//Задача
+
+// function getRandomInt(min, max) {
+//   const minCeiled = Math.ceil(min);
+//   const maxFloored = Math.floor(max);
+//   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // Максимум и минимум включаются
+}
+function randomNums (num){
+
+  let massiv = [];
+
+  for (let index = 0; index < num; index++) {
+    
+    massiv.push(index + 1)
+   
+  }
+
+  const repleceIndex = getRandomIntInclusive(0,num)
+  console.log(repleceIndex);
+massiv.splice(repleceIndex, 1, 'piff-paff')
+return massiv
+ }
+
+let arrR = [1,2,3,4,5,6,7,8,'piff-paff' , 10]
+
+ console.log(randomNums (20)) 
+
+ //____________________________________________________
+
+//  Array(10)- массив пустой с 10 элементами
+
+// let arr2 = Array.from(Array(num), (el, i)=>{
+// return i+1
+// })
+//________________________________________________________
+
+//This
+
