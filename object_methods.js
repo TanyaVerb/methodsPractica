@@ -248,6 +248,12 @@ let newArray7 = originalArray7.map((elem) => elem);
 console.log(newArray7); //[1, 2, 3, 4]
 console.log(newArray7 === originalArray7); //false
 
+const originalArray8 = [1, 2, 3, 4];
+let newArray8 = originalArray8.filter((elem) => elem);
+
+console.log(newArray8); //[1, 2, 3, 4]
+console.log(newArray8 === originalArray8); //false
+
 //Глубокое копирование
 const originalArrayG = [1, 2, 3, 4, 5];
 const newArrayG = JSON.parse(JSON.stringify(originalArrayG));
