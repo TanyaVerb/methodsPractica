@@ -259,3 +259,21 @@ const originalArrayG = [1, 2, 3, 4, 5];
 const newArrayG = JSON.parse(JSON.stringify(originalArrayG));
 console.log(newArray5); //[1, 2, 3, 4]
 console.log(newArray5 === originalArray5);
+
+//_____________________________________________________
+//Задача "Починить ссылки"
+
+const brokenLinks = ["vk", "youtube", "facebook"];
+
+//https:vk.com
+
+const fixLinksArray = (linksArray) => {
+  const correctLinks = [];
+  linksArray.forEach(function (brokenLink) {
+    const fixedLink = "//https:" + brokenLink + ".com";
+    correctLinks.push(fixedLink);
+  });
+  return correctLinks;
+};
+
+console.log(fixLinksArray(brokenLinks));
