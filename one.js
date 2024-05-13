@@ -26,6 +26,28 @@ const getAnswer = (index) => {
 };
 
 let count = 0;
+const handlerCheckAnswer = function (index) {
+  // console.log(cards);
+  // console.log(index);
+  // console.log(getAnswer(index));
+
+  if (this.input.value === getAnswer(index)) {
+    this.input.disabled = true;
+    this.btn.disabled = true;
+    count++;
+    if (count === 3) {
+      alert("Вы ответили правильно");
+      // this.good.style.display = "block";
+
+      //   window.location.href = "https://google.com";
+    }
+  } else {
+    this.input.value = "";
+    alert("Ответ неверный, попробуйте угадать 1,2 или 3");
+    // this.angry.style.display = "block";
+  }
+};
+//**********************************************************/
 // const handlerCheckAnswer = function (index) {
 //   console.log(cards);
 //   console.log(index);
@@ -34,40 +56,19 @@ let count = 0;
 //   if (this.input.value === getAnswer(index)) {
 //     this.input.disabled = true;
 //     this.btn.disabled = true;
-//     count++;
-//     if (count === 3) {
-//       //   alert("Вы ответили правильно");
-//       this.good.style.display = "block";
 
-//       //   window.location.href = "https://google.com";
-//     }
+//     this.good.style.display = "block";
+
+//     //   window.location.href = "https://google.com";
 //   } else {
 //     this.input.value = "";
 //     // alert("Ответ неверный, попробуйте угадать 1,2 или 3");
 //     this.angry.style.display = "block";
 //   }
 // };
-const handlerCheckAnswer = function (index) {
-  console.log(cards);
-  console.log(index);
-  console.log(getAnswer(index));
-
-  if (this.input.value === getAnswer(index)) {
-    this.input.disabled = true;
-    this.btn.disabled = true;
-
-    this.good.style.display = "block";
-
-    //   window.location.href = "https://google.com";
-  } else {
-    this.input.value = "";
-    // alert("Ответ неверный, попробуйте угадать 1,2 или 3");
-    this.angry.style.display = "block";
-  }
-};
 
 cards
-  .sort(() => Math.random() - 0.5)
+  .sort(() => Math.random() - 0.5) //-перемешивает карточки в случайном порядке
   .forEach((card, index) => {
     card.btn.addEventListener("click", handlerCheckAnswer.bind(card, index));
   });
