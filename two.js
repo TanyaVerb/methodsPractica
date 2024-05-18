@@ -1,26 +1,36 @@
 const answers = ["1", "2", "3"];
+function Card(selector1, selector2, selector3, selector4) {
+  this.input = document.querySelector(selector1);
+  this.btn = document.querySelector(selector2);
+  this.angry = document.querySelector(selector3);
+  this.good = document.querySelector(selector4);
+}
+// const cards = [
+//   {
+//     input: document.querySelector(".input1"),
+//     btn: document.querySelector(".btn1"),
+//     angry: document.querySelector(".angry1"),
+//     good: document.querySelector(".good1"),
+//   },
+//   {
+//     input: document.querySelector(".input2"),
+//     btn: document.querySelector(".btn2"),
+//     angry: document.querySelector(".angry2"),
+//     good: document.querySelector(".good2"),
+//   },
+//   {
+//     input: document.querySelector(".input3"),
+//     btn: document.querySelector(".btn3"),
+//     angry: document.querySelector(".angry3"),
+//     good: document.querySelector(".good3"),
+//   },
+// ];
 
 const cards = [
-  {
-    input: document.querySelector(".input1"),
-    btn: document.querySelector(".btn1"),
-    angry: document.querySelector(".angry1"),
-    good: document.querySelector(".good1"),
-  },
-  {
-    input: document.querySelector(".input2"),
-    btn: document.querySelector(".btn2"),
-    angry: document.querySelector(".angry2"),
-    good: document.querySelector(".good2"),
-  },
-  {
-    input: document.querySelector(".input3"),
-    btn: document.querySelector(".btn3"),
-    angry: document.querySelector(".angry3"),
-    good: document.querySelector(".good3"),
-  },
+  new Card(".input1", ".btn1", ".angry1", ".good1"),
+  new Card(".input2", ".btn2", ".angry2", ".good2"),
+  new Card(".input3", ".btn3", ".angry3", ".good3"),
 ];
-
 const getAnswer = (index) => {
   return answers[index];
 };
